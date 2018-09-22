@@ -6,15 +6,19 @@ import { handleLogout } from '../reducers/user';
 
 class NavBar extends Component {
   rightNavs = () => {
-    const { user, dispatch, history } = this.props;
+    const { user, dispatch, history, email } = this.props;
 
     if (user.id) {
       return (
         <Menu.Menu position='right'>
+         { email }
           <Menu.Item
             name='Logout'
             onClick={() => dispatch(handleLogout(history))}
           />
+          <Link to='/posts'>
+            <Menu.Item name="Posts" />
+          </Link>
         </Menu.Menu>
       );
     }
