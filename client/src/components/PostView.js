@@ -38,11 +38,7 @@ class PostView extends React.Component {
                 <Table.Body>
                   <Table.Row>
                     <Table.Cell>Post</Table.Cell>
-                    <Table.Cell>{post.post_space}</Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>Author</Table.Cell>
-                    <Table.Cell>{post.author}</Table.Cell>
+                    <Table.Cell>{post.posting}</Table.Cell>
                   </Table.Row>
                   <Table.Row>
                     <Table.Cell>Mood</Table.Cell>

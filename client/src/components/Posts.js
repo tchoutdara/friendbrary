@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { Container, Header, Card, Dropdown, Divider, Button } from 'semantic-ui-react'
 import PostForm from './PostForm'
+import { Link } from 'react-router-dom'
+
 
 
 class Posts extends React.Component {
@@ -11,6 +12,8 @@ class Posts extends React.Component {
   toggleForm = () => {
     this.setState({ showForm: !this.state.showForm }) 
   }
+
+
 
 moodOptions = () => {
     const { moods } = this.props
@@ -27,7 +30,7 @@ moodOptions = () => {
       visible = posts.filter( p => p.mood === mood )
 
     return visible.map( post => {
-      const { title, id, mood } = post
+      const { title, id, mood, posting } = post
       return (
         <Card key={id}>
           <Card.Content>
@@ -38,11 +41,11 @@ moodOptions = () => {
               <span>mood: {mood}</span>
             </Card.Meta>
             <Card.Description>
-              Mood: {mood}
+              {posting}
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Link to={`/posts/${post.id}`}>
+          <Link to={`/posts/${post.id}`}>
               View Post
             </Link>
           </Card.Content>
